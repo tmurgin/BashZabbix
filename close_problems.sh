@@ -15,8 +15,7 @@ done
 # Preprocessing
 expr ${DAY_AGO} + 1 1>&/dev/null
 RC=${?}
-[[ ${RC} != 0 ]] && echo "Option /'d/' must be integer greater than or equal to 0." && exit 99
-[[ ${DAY_AGO} < 0 ]] && echo "Option /'d/' must be integer greater than or equal to 0." && exit 99
+[[ ${RC} != 0 ]] || [[ ${DAY_AGO} < 0 ]] && echo "Option /'d/' must be integer greater than or equal to 0." && exit 99
 
 if [[ ${DAY_AGO} = 0 ]]; then
   TIME_TILL_UNIX=$(date +%s)
